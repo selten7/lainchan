@@ -9,10 +9,10 @@ services:
       - 'db_data:/var/lib/mysql'
     restart: 'always'
     environment:
-      MYSQL_ROOT_PASSWORD: 'lainchan-root'
-      MYSQL_DATABASE: 'lainchan'
-      MYSQL_USER: 'lainchan'
-      MYSQL_PASSWORD: 'lainchan'
+      MYSQL_ROOT_PASSWORD: 'wirechan-root'
+      MYSQL_DATABASE: 'wirechan'
+      MYSQL_USER: 'wirechan'
+      MYSQL_PASSWORD: 'wirechan'
 
   lainchan:
     build: '.'
