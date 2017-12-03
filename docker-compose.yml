@@ -14,7 +14,7 @@ services:
       MYSQL_USER: 'wirechan'
       MYSQL_PASSWORD: 'wirechan'
 
-  lainchan:
+  wirechan:
     build: '.'
     volumes:
       - '.:/app'
