@@ -504,7 +504,7 @@ class ImageBMP extends ImageBase {
 /* Date:     The 15th of June 2005           */
 /* Version:  2.0B                            */
 /*********************************************/
-
+/*
 function imagecreatefrombmp($filename) {
    if (! $f1 = fopen($filename,"rb")) return FALSE;
    $FILE = unpack("vfile_type/Vfile_size/Vreserved/Vbitmap_offset", fread($f1,14));
@@ -581,8 +581,8 @@ function imagecreatefrombmp($filename) {
    fclose($f1);
 
  return $res;
-}
-
+}*/
+/*
 function imagebmp(&$img, $filename='') {
 	$widthOrig = imagesx($img);
 	$widthFloor = ((floor($widthOrig/16))*16);
@@ -654,7 +654,7 @@ function imagebmp(&$img, $filename='') {
 		fwrite($file, $result);
 		fclose($file);
 	}
-}
+}*/
 // imagebmp helpers
 function int_to_dword($n) {
 	return chr($n & 255).chr(($n >> 8) & 255).chr(($n >> 16) & 255).chr(($n >> 24) & 255);

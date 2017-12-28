@@ -16,6 +16,7 @@ services:
 
   wirechan:
     build: '.'
+    restart: 'always'
     volumes:
       - '.:/app'
     depends_on:

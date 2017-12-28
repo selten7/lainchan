@@ -2,7 +2,7 @@
 
 /*
  *  Copyright (c) 2010-2013 Tinyboard Development Group
- *  
+ *
  *  WARNING: This is a project-wide configuration file and is overwritten when upgrading to a newer
  *  version of Tinyboard. Please leave this file unchanged, or it will be a lot harder for you to upgrade.
  *  If you would like to make instance-specific changes to your own setup, please use instance-config.php.
@@ -31,6 +31,9 @@
  * =======================
  */
 
+ 	//HTTP Referer shitty error
+ 	$config['referer_match'] = false;
+
 	// Global announcement -- the very simple version.
 	// This used to be wrongly named $config['blotter'] (still exists as an alias).
 	// $config['global_message'] = 'This is an important announcement!';
@@ -44,7 +47,7 @@
 	// Shows some extra information at the bottom of pages. Good for development/debugging.
 	$config['debug'] = false;
 	// For development purposes. Displays (and "dies" on) all errors and warnings. Turn on with the above.
-	$config['verbose_errors'] = true;
+	$config['verbose_errors'] = false;
 	// EXPLAIN all SQL queries (when in debug mode).
 	$config['debug_explain'] = false;
 
@@ -84,14 +87,14 @@
 	// Only MySQL is supported by Tinyboard at the moment, sorry.
 	$config['db']['type'] = 'mysql';
 	// Hostname, IP address or Unix socket (prefixed with ":")
-	$config['db']['server'] = 'localhost';
+	$config['db']['server'] = '172.18.0.2';
 	// Example: Unix socket
 	// $config['db']['server'] = ':/tmp/mysql.sock';
 	// Login
-	$config['db']['user'] = '';
-	$config['db']['password'] = '';
+	$config['db']['user'] = 'wirechan';
+	$config['db']['password'] = 'wirechan';
 	// Tinyboard database
-	$config['db']['database'] = '';
+	$config['db']['database'] = 'wirechan';
 	// Table prefix (optional)
 	$config['db']['prefix'] = '';
 	// Use a persistent database connection when possible
@@ -109,7 +112,7 @@
 
 	/*
 	 * On top of the static file caching system, you can enable the additional caching system which is
-	 * designed to minimize SQL queries and can significantly increase speed when posting or using the 
+	 * designed to minimize SQL queries and can significantly increase speed when posting or using the
 	 * moderator interface. APC is the recommended method of caching.
 	 *
 	 * http://tinyboard.org/docs/index.php?p=Config/Cache
@@ -206,15 +209,15 @@
 	// http://www.projecthoneypot.org/httpbl.php
 	// $config['dnsbl'][] = array('<your access key>.%.dnsbl.httpbl.org', function($ip) {
 	//	$octets = explode('.', $ip);
-	//	
+	//
 	//	// days since last activity
 	//	if ($octets[1] > 14)
 	//		return false;
-	//	
+	//
 	//	// "threat score" (http://www.projecthoneypot.org/threat_info.php)
 	//	if ($octets[2] < 5)
 	//		return false;
-	//	
+	//
 	//	return true;
 	// }, 'dnsbl.httpbl.org'); // hide our access key
 
@@ -250,7 +253,7 @@
 
 	// How soon after regeneration do hashes expire (in seconds)?
 	$config['spam']['hidden_inputs_expire'] = 60 * 60 * 3; // three hours
-	
+
 	// Whether to use Unicode characters in hidden input names and values.
 	$config['spam']['unicode'] = true;
 
@@ -310,7 +313,7 @@
 	// Public and private key pair from https://www.google.com/recaptcha/admin/create
 	$config['recaptcha_public'] = '6LcXTcUSAAAAAKBxyFWIt2SO8jwx4W7wcSMRoN3f';
 	$config['recaptcha_private'] = '6LcXTcUSAAAAAOGVbVdhmEM1_SyRF4xTKe8jbzf_';
-	
+
 	// Ability to lock a board for normal users and still allow mods to post.  Could also be useful for making an archive board
 	$config['board_locked'] = false;
 
@@ -439,7 +442,7 @@
 	// 	),
 	// 	'action' => 'reject'
 	// );
-	
+
 	// Filter flood prevention conditions ("flood-match") depend on a table which contains a cache of recent
 	// posts across all boards. This table is automatically purged of older posts, determining the maximum
 	// "age" by looking at each filter. However, when determining the maximum age, Tinyboard does not look
@@ -522,9 +525,9 @@
 	$config['markup_urls'] = true;
 
 	// Optional URL prefix for links (eg. "http://anonym.to/?").
-	$config['link_prefix'] = ''; 
+	$config['link_prefix'] = '';
 	$config['url_ads'] = &$config['link_prefix'];	 // leave alias
-	
+
 	// Allow "uploading" images via URL as well. Users can enter the URL of the image and then Tinyboard will
 	// download it. Not usually recommended.
 	$config['allow_upload_by_url'] = false;
@@ -542,7 +545,7 @@
 	// as they are submitted and changes or censors particular words or phrases.
 
 	// For a normal string replacement:
-	// $config['wordfilters'][] = array('cat', 'dog');	
+	// $config['wordfilters'][] = array('cat', 'dog');
 	// Advanced raplcement (regular expressions):
 	// $config['wordfilters'][] = array('/ca[rt]/', 'dog', true); // 'true' means it's a regular expression
 
@@ -556,14 +559,14 @@
 
 	// Allow users to mark their image as a "spoiler" when posting. The thumbnail will be replaced with a
 	// static spoiler image instead (see $config['spoiler_image']).
-	$config['spoiler_images'] = false;
+	$config['spoiler_images'] = true;
 
 	// With the following, you can disable certain superfluous fields or enable "forced anonymous".
 
 	// When true, all names will be set to $config['anonymous'].
 	$config['field_disable_name'] = false;
 	// When true, there will be no email field.
-	$config['field_disable_email'] = false;
+	$config['field_disable_email'] = true;
 	// When true, there will be no subject field.
 	$config['field_disable_subject'] = false;
 	// When true, there will be no subject field for replies.
@@ -594,7 +597,7 @@
 	// that you will have to disable BOTH country_flags and contry_flags_condensed optimization (at least on a board
 	// where they are enabled).
 	$config['user_flag'] = false;
-	
+
 	// List of user_flag the user can choose. Flags must be placed in the directory set by $config['uri_flags']
 	$config['user_flags'] = array();
 	/* example: 
@@ -611,7 +614,7 @@
 
 	// Use semantic URLs for threads, like /b/res/12345/daily-programming-thread.html
 	$config['slugify'] = false;
-	
+
 	// Max size for slugs
 	$config['slug_max_size'] = 80;
 
@@ -680,10 +683,10 @@
 	// $config['additional_javascript'][] = 'js/multi_image.js';
 	$config['max_images'] = 1;
 
-	// Method to use for determing the max filesize. 
+	// Method to use for determing the max filesize.
 	// "split" means that your max filesize is split between the images. For example, if your max filesize
-	// is 2MB, the filesizes of all files must add up to 2MB for it to work. 
-	// "each" means that each file can be 2MB, so if your max_images is 3, each post could contain 6MB of 
+	// is 2MB, the filesizes of all files must add up to 2MB for it to work.
+	// "each" means that each file can be 2MB, so if your max_images is 3, each post could contain 6MB of
 	// images. "split" is recommended.
 	$config['multiimage_method'] = 'split';
 
@@ -710,7 +713,7 @@
 	 *   'gd'		   PHP GD (default). Only handles the most basic image formats (GIF, JPEG, PNG).
 	 *				  GD is a prerequisite for Tinyboard no matter what method you choose.
 	 *
-	 *   'imagick'	  PHP's ImageMagick bindings. Fast and efficient, supporting many image formats. 
+	 *   'imagick'	  PHP's ImageMagick bindings. Fast and efficient, supporting many image formats.
 	 *				  A few minor bugs. http://pecl.php.net/package/imagick
 	 *
 	 *   'convert'	  The command line version of ImageMagick (`convert`). Fixes most of the bugs in
@@ -737,18 +740,18 @@
 	// Ignored when $config['redraw_image'] is true. This is also used to adjust the Orientation tag when
 	//  $config['strip_exif'] is false and $config['convert_manual_orient'] is true.
 	$config['use_exiftool'] = false;
-	
+
 	// Redraw the image to strip any excess data (commonly ZIP archives) WARNING: This might strip the
 	// animation of GIFs, depending on the chosen thumbnailing method. It also requires recompressing
 	// the image, so more processing power is required.
 	$config['redraw_image'] = false;
-	
+
 	// Automatically correct the orientation of JPEG files using -auto-orient in `convert`. This only works
 	// when `convert` or `gm` is selected for thumbnailing. Again, requires more processing power because
 	// this basically does the same thing as $config['redraw_image']. (If $config['redraw_image'] is enabled,
 	// this value doesn't matter as $config['redraw_image'] attempts to correct orientation too.)
 	$config['convert_auto_orient'] = false;
-	
+
 	// Is your version of ImageMagick or GraphicsMagick old? Older versions may not include the -auto-orient
 	// switch. This is a manual replacement for that switch. This is independent from the above switch;
 	// -auto-orrient is applied when thumbnailing too.
@@ -830,7 +833,7 @@
 	$config['image_identification_google'] = true;
 	// Anime/manga search engine.
 	$config['image_identification_iqdb'] = false;
-	
+
 	// Set this to true if you're using a BSD
 	$config['bsd_md5'] = false;
 
@@ -916,7 +919,7 @@
 	$config['genpassword_chars'] = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+';
 
 	// Optional banner image at the top of every page.
-	// $config['url_banner'] = '/banner.php';
+	// $config['url_banner'] = '../banners/banners.php';
 	// Banner dimensions are also optional. As the banner loads after the rest of the page, everything may be
 	// shifted down a few pixels when it does. Making the banner a fixed size will prevent this.
 	// $config['banner_width'] = 300;
@@ -924,8 +927,8 @@
 
 	// Custom stylesheets available for the user to choose. See the "stylesheets/" folder for a list of
 	// available stylesheets (or create your own).
-	$config['stylesheets']['Yotsuba B'] = ''; // Default; there is no additional/custom stylesheet for this.
-	$config['stylesheets']['Yotsuba'] = 'yotsuba.css';
+	// $config['stylesheets']['Yotsuba B'] = ''; // Default; there is no additional/custom stylesheet for this.
+	// $config['stylesheets']['Yotsuba'] = 'yotsuba.css';
 	// $config['stylesheets']['Futaba'] = 'futaba.css';
 	// $config['stylesheets']['Dark'] = 'dark.css';
 
@@ -933,7 +936,7 @@
 	// $config['uri_stylesheets'] = 'http://static.example.org/stylesheets/';
 
 	// The default stylesheet to use.
-	$config['default_stylesheet'] = array('Yotsuba B', $config['stylesheets']['Yotsuba B']);
+	// $config['default_stylesheet'] = array('Yotsuba B', $config['stylesheets']['Yotsuba B']);
 
 	// Make stylesheet selections board-specific.
 	$config['stylesheets_board'] = false;
@@ -954,21 +957,22 @@
 	 */
 
 	// $config['boards'] = array(
-	// 	array('a', 'b'),
-	// 	array('c', 'd', 'e', 'f', 'g'),
-	// 	array('h', 'i', 'j'),
-	// 	array('k', array('l', 'm')),
-	// 	array('status' => 'http://status.example.org/')
+	// array('a', 'b'),
+	// array('c', 'd', 'e', 'f', 'g'),
+	// array('h', 'i', 'j'),
+	// array('k', array('l', 'm')),
+	// array('status' => 'http://status.example.org/')
 	// );
 
 	// Whether or not to put brackets around the whole board list
 	$config['boardlist_wrap_bracket'] = false;
 
 	// Show page navigation links at the top as well.
-	$config['page_nav_top'] = false;
+	$config['page_nav_top'] = true;
 
 	// Show "Catalog" link in page navigation. Use with the Catalog theme. Set to false to disable.
-	$config['catalog_link'] = 'catalog.html';
+	// $config['catalog_link'] = 'catalog.html';
+	// $config['catalog_link'] = 'catalog.html';
 
 	// Board categories. Only used in the "Categories" theme.
 	// $config['categories'] = array(
@@ -1232,7 +1236,7 @@
 
 	// Website favicon.
 	// $config['url_favicon'] = '/favicon.gif';
-	
+
 	// Try not to build pages when we shouldn't have to.
 	$config['try_smarter'] = true;
 
@@ -1619,21 +1623,21 @@
 		'convert_args',
 		'db>password',
 	);
-	
+
 	$config['mod']['config'][JANITOR] = array(
 		'!', // Allow editing ONLY the variables listed (in this case, nothing).
 	);
-	
+
 	$config['mod']['config'][MOD] = array(
 		'!', // Allow editing ONLY the variables listed (plus that in $config['mod']['config'][JANITOR]).
 		'global_message',
 	);
-	
+
 	// Example: Disallow ADMIN from editing (and viewing) $config['db']['password'].
 	// $config['mod']['config'][ADMIN] = array(
 	// 	'db>password',
 	// );
-	
+
 	// Example: Allow ADMIN to edit anything other than $config['db']
 	// (and $config['mod']['config'][DISABLED]).
 	// $config['mod']['config'][ADMIN] = array(
@@ -1670,7 +1674,7 @@
 
 	// Limit of search results
 	$config['search']['search_limit'] = 100;
-		
+
 	// Boards for searching
 	//$config['search']['boards'] = array('a', 'b', 'c', 'd', 'e');
 
@@ -1691,7 +1695,7 @@
 
 	// event_handler('post', function($post) {
 	// 	// do something else
-	// 	
+	//
 	// 	// return an error (reject post)
 	// 	return 'Sorry, you cannot post that!';
 	// });

@@ -1104,7 +1104,15 @@ if (function_exists('mb_get_info')) {
      */
     function twig_length_filter(Twig_Environment $env, $thing)
     {
-        return is_scalar($thing) ? mb_strlen($thing, $env->getCharset()) : count($thing);
+        if(is_scalar($thing)){
+          return mb_strlen($thing,$env->getCharset());
+        }
+        else{
+          if($thing !== null)
+            return count($thing);
+          else
+            return 0;
+        }//return is_scalar($thing) ? mb_strlen($thing, $env->getCharset()) : count($thing);
     }
 
     /**

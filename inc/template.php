@@ -10,7 +10,8 @@ $twig = false;
 
 function load_twig() {
 	global $twig, $config;
-	
+	//error($config['dir']['template']);
+
 	require 'lib/Twig/Autoloader.php';
 	Twig_Autoloader::register();
 
@@ -18,7 +19,7 @@ function load_twig() {
 	Twig_Autoloader::autoload('Twig_Extensions_TokenParser_Trans');
 	Twig_Autoloader::autoload('Twig_Extensions_Extension_I18n');
 	Twig_Autoloader::autoload('Twig_Extensions_Extension_Tinyboard');
-	
+
 	$loader = new Twig_Loader_Filesystem($config['dir']['template']);
 	$loader->setPaths($config['dir']['template']);
 	$twig = new Twig_Environment($loader, array(
@@ -33,17 +34,17 @@ function load_twig() {
 
 function Element($templateFile, array $options) {
 	global $config, $debug, $twig, $build_pages;
-	
+
 	if (!$twig)
 		load_twig();
-	
+
 	if (function_exists('create_pm_header') && ((isset($options['mod']) && $options['mod']) || isset($options['__mod'])) && !preg_match('!^mod/!', $templateFile)) {
 		$options['pm'] = create_pm_header();
 	}
-	
+
 	if (isset($options['body']) && $config['debug']) {
 		$_debug = $debug;
-		
+
 		if (isset($debug['start'])) {
 			$_debug['time']['total'] = '~' . round((microtime(true) - $_debug['start']) * 1000, 2) . 'ms';
 			$_debug['time']['init'] = '~' . round(($_debug['start_debug'] - $_debug['start']) * 1000, 2) . 'ms';
@@ -61,18 +62,17 @@ function Element($templateFile, array $options) {
 				str_replace("\n", '<br/>', utf8tohtml(print_r($_debug, true))) .
 			'</pre>';
 	}
-	
+
 	// Read the template file
 	if (@file_get_contents("{$config['dir']['template']}/${templateFile}")) {
 		$body = $twig->render($templateFile, $options);
-		
+
 		if ($config['minify_html'] && preg_match('/\.html$/', $templateFile)) {
 			$body = trim(preg_replace("/[\t\r\n]/", '', $body));
 		}
-		
+
 		return $body;
 	} else {
 		throw new Exception("Template file '${templateFile}' does not exist or is empty in '{$config['dir']['template']}'!");
 	}
 }
-

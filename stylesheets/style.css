@@ -1,3 +1,8 @@
+@font-face {
+	font-family: "LoveLetter";
+	src: url("../static/ll.ttf")
+}
+
 /*Lainchan*/
 
 div.sidearrows{
@@ -40,7 +45,7 @@ div.pages{
 }
 
 div.boardlist.bottom {
- 
+
   text-align: center!important;
   display: none!important;
 }
@@ -62,8 +67,8 @@ img.banner, img.board_image {
   width: 100%;
   left: 0px;
   z-index: 3;
-  background-color: #D6DAF0;
-  border-color: #B7C5D9;
+  background-color: #555;
+  border-color: #333;
 }
 .bar > :not(script) {
   display: table-cell;
@@ -72,7 +77,7 @@ img.banner, img.board_image {
 .bar.top {
   text-align: center;
   top: 0px;
-  border-bottom: 1px solid #B7C5D9;
+  border-bottom: 1px solid #333;
 }
 
 .bar.bottom {
@@ -93,8 +98,8 @@ div.lain_banner{
 
 /* Page Layouts */
 body {
-  background: #EEF2FF url('img/fade-blue.png') repeat-x 50% 0%;
-  color: black;
+  background: #555555;
+  color: #EFEFEF;
   font-family: arial,helvetica,sans-serif;
   font-size: 10pt;
   margin: 0 4px;
@@ -117,7 +122,7 @@ main {
 /* Tables */
 table {
     margin: auto;
-   
+
 }
 table.board-list-table {
     width: 100%;
@@ -125,13 +130,13 @@ table.board-list-table {
 table tbody td {
     margin: 0;
     padding: 4px 15px 4px 4px;
-    
+
     text-align: left;
 }
 table thead th {
     border: 1px solid #000333;
     padding: 4px 15px 5px 5px;
-    
+
     background: #98E;
     color: #000333;
     text-align: left;
@@ -142,7 +147,7 @@ table tbody tr:nth-of-type( even ) {
 }
 
 tr{
-  
+
 }
 
 td.minimal,th.minimal {
@@ -208,11 +213,11 @@ table.mod.config-editor input[type="text"] {
 
 a,a:visited {
   text-decoration: underline;
-  color: #34345C;
+  color: #9b8;
 }
 
 a:hover,.intro a.post_no:hover {
-  color: #ff0000;
+  color: #ac9;
 }
 
 a.post_no {
@@ -258,14 +263,14 @@ header {
 }
 
 h1 {
-  font-family: tahoma;
+  font-family: "LoveLetter";
   letter-spacing: -2px;
-  font-size: 20pt;
+  font-size: 30pt;
   margin: 0;
 }
 
 header div.subtitle,h1 {
-  color: #AF0A0F;
+  color: #EFEFEF;
   text-align: center;
 }
 
@@ -315,7 +320,7 @@ form table tr th {
 }
 
 form table tr th {
-  background: #98E;
+  background: #4F4F4F;
 }
 
 form table tr td div.center {
@@ -362,7 +367,7 @@ div.post p.fileinfo {
 }
 
 div.banner {
-  background-color: #E04000;
+  background-color: #333;
   font-size: 12pt;
   font-weight: bold;
   text-align: center;
@@ -435,12 +440,12 @@ input.delete {
 }
 
 .intro span.subject {
-  color: #0F0C5D;
+  color: #EFEFEF;
   font-weight: bold;
 }
 
 .intro span.name {
-  color: #117743;
+  color: #b8a;
   font-weight: bold;
 }
 
@@ -465,7 +470,7 @@ input.delete {
 div.post p {
     display: block;
     margin: 0;
-    
+
     line-height: 1.16em;
     font-size: 13px;
     min-height: 1.16em;
@@ -482,11 +487,15 @@ div.post.reply div.body {
 }
 
 div.post.reply.highlighted {
-  background: #D6BAD0;
+  background: #999999;
 }
 
 div.post.reply div.body a {
-  color: #D00;
+  color: #9b8;
+}
+
+div.post.reply div.body a:hover {
+  color: #ac9;
 }
 
 div.post div.body {
@@ -495,14 +504,12 @@ div.post div.body {
 }
 
 div.post.reply {
-  background: #D6DAF0;
+  background: #4F4F4F;
   margin: 0.2em 4px;
   padding: 0.5em 0.3em 0.5em 0.6em;
-  border-width: 1px;
-  border-style: none solid solid none;
-  border-color: #B7C5D9;
   display: inline-block;
   max-width: 94%!important;
+	box-shadow: 3px 3px #333;
 }
 
 div.post.reply.has-file.body-not-empty {
@@ -571,8 +578,8 @@ div#wrap {
 
 div.module,
 div.ban {
-  background: white;
-  border: 1px solid #98E;
+  background: #555;
+  border: 1px solid #333;
   max-width: 700px;
   margin: 30px auto;
 }
@@ -583,8 +590,8 @@ div.ban h2 {
 }
 
 div.ban h2 {
-  background: #98E;
-  color: black;
+  background: #4F4F4F;
+  color: #EFEFEF;
   font-size: 12pt;
 }
 
@@ -678,7 +685,7 @@ div.pages.top {
 }
 
 div.pages a.selected {
-  color: black;
+  color: #999;
   font-weight: bolder;
 }
 
@@ -699,7 +706,7 @@ div.pages form input {
 
 hr {
   border: none;
-  border-top: 1px solid #B7C5D9;
+  border-top: 1px solid #333;
   height: 0;
   clear: left;
 }
@@ -733,7 +740,7 @@ span.toolong {
 }
 
 div.blotter {
-  color: red;
+  color: #FDE3A7;
   font-weight: bold;
   text-align: center;
 }
@@ -1267,10 +1274,10 @@ span.pln {
     clear: both;
     visibility: hidden;
     overflow: hidden;
-    
+
     font-size: 0px;
     line-height: 0px;
-    
+
     box-sizing: border-box;
     border: none;
     height: 0;
@@ -1285,10 +1292,10 @@ span.pln {
 /* Board List */
 div.boardlist {
     margin-top: 3px;
-    
-    color: #89A;
+
+    color: #EFEFEF;
     font-size: 9pt;
-    word-spacing:-3px;
+    word-spacing: 2px;
 }
 div.boardlist.bottom {
     margin-top: 12px;
@@ -1378,7 +1385,7 @@ div.boardlist {
 }
 li.mix {
     display: inline-block;
-} 
+}
 
 /* Mona Font */
 .aa {
@@ -1770,12 +1777,12 @@ td.board-tags a.tag-link {
     aside.search-container .box {
         margin-right: 0;
     }
-    
+
     section.board-list {
         margin-top: 12px;
         width: 100%;
     }
-    
+
     table.board-list-table .board-meta,
     table.board-list-table .board-pph,
     table.board-list-table .board-tags {
@@ -1793,7 +1800,7 @@ td.board-tags a.tag-link {
 .announcement {
     font-size: 75%;
     padding-bottom: 1%;
-    margin-left: 5%; 
+    margin-left: 5%;
     margin-right: 5%;
 }
 
@@ -1889,7 +1896,7 @@ table.fileboard .intro a {
     text-align: left;
     position: absolute;
     bottom: 80px;
-    top: 60px; 
+    top: 60px;
     width: 100%;
     overflow: auto;
 }
@@ -1900,7 +1907,7 @@ table.fileboard .intro a {
 #rules-popup .rules-popup-bottom {
     bottom: 0px;
     height: 80px;
-    width: 100%; 
+    width: 100%;
     position: absolute;
 }
 #rules-popup .rules-popup-bottom-instructions {

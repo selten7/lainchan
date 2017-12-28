@@ -1,0 +1,191 @@
+@font-face {
+	font-family: "LoveLetter";
+	src: url("static/ll.ttf")
+}
+
+html {
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%
+}
+
+input[type="submit"] {
+	-webkit-appearance: none
+}
+
+input[type="submit"]::-moz-focus-inner {
+	border: 0;
+	padding: 0
+}
+
+* {
+	border: 0;
+	margin: 0;
+	padding: 0
+}
+
+a {
+	text-decoration: none
+}
+
+hr {
+	clear: both;
+	visibility: hidden
+}
+
+body {
+	font-family: -apple-system, "Segoe UI", "Roboto", "Helvetica Neue", "Open Sans", sans-serif
+}
+
+footer {
+	margin: 10px
+}
+
+.thing {
+	font-size: .75rem;
+	text-align: center;
+	color: #999;
+}
+
+div.banner {
+	background-color: #555;
+	font-size: 12pt;
+	font-weight: bold;
+	text-align: center;
+	margin: 1em 0;
+}
+
+div.banner, div.banner a {
+	color: white;
+	border: 1px solid #212121;
+	display: block;
+  height: 100px;
+	width: 300px;
+	background-size: contain;
+}
+
+div.banner a:hover {
+	color: #EEF2FF;
+	text-decoration: none;
+}
+
+img.banner {
+	display: block;
+	border: 1px solid #a9a9a9;
+	margin: 12px auto 0 auto;
+}
+
+body {
+	font-size: .9rem;
+	margin: 5px;
+	background-color: #555;
+	color: #EFEFEF;
+	position: relative
+}
+
+a {
+	color: #9b8
+}
+
+a:hover {
+	color: #ac9
+}
+
+p {
+	line-height: 1.2rem
+}
+
+.admin,
+.backquote {
+	color: #ac9
+}
+
+.quote {
+	color: #789922
+}
+
+.spoiler {
+	color: #EFEFEF;
+	background-color: #EFEFEF
+}
+
+.spoiler:hover {
+	color: #999
+}
+
+pre {
+	display: inline-block;
+	padding: 5px;
+	margin: 2px;
+	font-family: "Lucida Console", Monaco, monospace;
+	font-size: .8rem;
+	line-height: 1.2rem;
+	tab-size: 4;
+	-moz-tab-size: 4
+}
+
+header {
+	text-align: center
+}
+
+nav {
+	margin-bottom: 5px;
+	font-size: .8rem
+}
+
+#crest {
+	border: 1px solid #333;
+	box-shadow: 3px 3px #333
+}
+
+#title {
+	margin: 15px;
+	font-size: 3rem;
+	font-family: "LoveLetter", "Helvetica", "Arial", sans-serif
+}
+
+.tripcode {
+	font-weight: lighter;
+	margin: 0 0 0 5px
+}
+
+.box a {
+	text-decoration: underline
+}
+
+.box {
+	border: 1px solid #000;
+	border-collapse: collapse;
+	text-align: justify;
+	margin: 10px auto 10px auto;
+	max-width: 60%
+}
+
+.box td {
+	padding: 5px
+}
+
+.box tr.top {
+	font-weight: bold;
+	font-size: 1rem;
+	background: #2F2F2F
+}
+
+.box tr:nth-child(2n) {
+	background: #4F4F4F
+}
+
+img.logo {
+	-webkit-user-drag: none;
+	user-select: none;
+	image-rendering: pixelated;
+	display: block;
+	margin: 0 auto 0 auto
+}
+
+#copy {
+  font-size: .75rem;
+  text-align: center;
+  color: #999;
+}
+
+/*# sourceMappingURL=front.css.map */
